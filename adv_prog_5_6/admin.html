@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 100px;
+        background-color: #f4f4f4;
+        background-image: linear-gradient(to right, rgba(255, 221, 0, 0.05), rgba(255, 221, 0, 0));
+        }
+        
+        
+             </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/barbers">View Barbers</a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Welcome, Admin!</h1>
+
+    <h2>Change Barber Items Data</h2>
+    <form action="/update/barbers" method="POST">
+        <label for="barber_id">Barber ID:</label>
+        <input type="text" id="barber_id" name="barber_id" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="basic_info">Basic Info:</label>
+        <input type="text" id="basic_info" name="basic_info">
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price">
+
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" name="experience">
+
+        <label for="status">Status:</label>
+        <select id="status" name="status">
+            <option value="Expert">Expert</option>
+            <option value="Senior">Senior</option>
+            <option value="Junior">Junior</option>
+        </select>
+
+        <label for="image_path">Image Path:</label>
+        <input type="text" id="image_path" name="image_path">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Barber Items</h2>
+    <ul>
+        {{range .Barbers}}
+            <li>
+                <img src="{{.ImagePath}}" alt="{{.Name}}" style="max-width: 200px; max-height: 200px;">
+                <h3>{{.Name}}</h3>
+                <p>{{.BasicInfo}}</p>
+                <p><b>Прайс:</b> {{.Price}} ₸</p>
+                <p><b>Опыт работы:</b> {{.Experience}}</p>
+                <p><b>Категория:</b> {{.Status}}</p>
+            </li>
+        {{end}}
+    </ul>
+
+</body>
+</html>

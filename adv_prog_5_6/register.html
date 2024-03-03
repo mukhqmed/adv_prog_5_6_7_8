@@ -1,0 +1,32 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin-left: 100px;
+        background-color: #f4f4f4;
+        background-image: linear-gradient(to right, rgba(255, 221, 0, 0.05), rgba(255, 221, 0, 0));
+        }
+        
+        
+             </style>
+</head>
+<body>
+    <h1>Register</h1>
+    <form action="/register" method="post">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="text" name="firstname" placeholder="First Name" required><br>
+        <input type="text" name="lastname" placeholder="Last Name" required><br>
+        <input type="number" name="age" placeholder="Age" required><br>
+        <input type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+</body>
+</html>
